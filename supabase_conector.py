@@ -25,6 +25,17 @@ supabase: Client = create_client(url, key)
 #         print(40*'-')
 #     conn.commit()
 
+# CREATE TABLE access_registry (
+#     transaction_id varchar NOT NULL,
+#     member_id int NOT NULL,
+#     plan_id int NOT NULL ,
+#     branch_id int NOT NULL,
+#     status varchar NOT NULL,
+#     created_at timestamp NOT NULL,
+#     PRIMARY KEY (transaction_id),
+#     FOREIGN KEY (member_id) REFERENCES customers(member_id)
+# );
+
 
 with psycopg.connect(
     'postgresql://postgres.slbeklsinybfmmcvscqn:boulder_gym_project@aws-0-us-west-1.pooler.supabase.com:6543/postgres'
