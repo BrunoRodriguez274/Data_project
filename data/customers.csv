@@ -1,0 +1,2 @@
+Id_Customer,Name,Last_Name,Gender,Birth_Date,Latitude,Longitude,Zipcode,Email,Phone_Number,Created_At,Status,Profile_Type,Updated_At
+1,Benito Gabino,Maldonado Otero,true,2004-08-20T00:00:00.000000,21.017767,-101.2543,36000,a**********e@hotmail.com,(473)7984438,2026-01-01T20:47:13.525995,Active,8,2026-05-20T20:47:13.525957

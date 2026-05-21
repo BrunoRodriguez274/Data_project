@@ -49,7 +49,7 @@ def create_name(gender_: bool) -> str:
     conditions = True
     while conditions:
         temp = []
-        for i in range(random.randint(1,2)):
+        for i in range(rng.choice([1,2])):
             temp.append(names[int(gender_)]())
 
         name = " ".join(temp)
@@ -97,53 +97,58 @@ def compute_centroid(points : list) -> float:
 
     return (Cx, Cy)
 
+def create_customer(geography_metadata_, n_=1):
 
+    # customer_x = []
+    # customer_y = []
+    # customers_data = []
+    # for customer in range(n_):
+    print("Creating customer")
 
-def create_customer(geography_metadata_)
-
-    n = 1
-    customer_x = []
-    customer_y = []
-    customers_data = []
-    for customer in range(n):
-        print("Customer", customer)
-
-        key = rng.choice(list(geography_metadata_.keys()))
-        xc, yc = geography_metadata_[key]["centroids"]
-        customer_x.append(rng.normal(xc, np.std(lat)))
-        customer_y.append(rng.normal(yc, np.std(lon)))
-        
-        retries = 0
-        while True:
-            try:
-                zipcode = get_zipcodes(customer_x[customer], customer_y[customer])
-                time.sleep(3)
+    key = rng.choice(list(geography_metadata_.keys()))
+    xc, yc = geography_metadata_[key]["centroids"]
+    lat = [p["point"][0] for p in geography_metadata_["Marfil"]["points"]]
+    lon = [p["point"][1] for p in geography_metadata_["Marfil"]["points"]]
+    customer_x = rng.normal(xc, np.std(lat))
+    customer_y = rng.normal(yc, np.std(lon))
+    
+    retries = 0
+    while True:
+        try:
+            zipcode = get_zipcodes(customer_x, customer_y)
+            time.sleep(3)
+            break
+        except:
+            print("retry", retries)
+            time.sleep(3)
+            retries +=1
+            if retries >3:
+                zipcode= None
                 break
-            except:
-                print("retry", retries)
-                time.sleep(3)
-                retries +=1
-                if retries >3:
-                    zipcode= None
-                    break
 
-        gender = rng.choice([True, False])
-        birth_date = dt.datetime.date(rng.choice(pd.date_range("1950-01-01", "2019-01-01").to_list()))
-        letters = [i for i in string.ascii_lowercase]
+    gender = rng.choice([True, False])
+    birth_date = dt.datetime.date(rng.choice(pd.date_range("1950-01-01", "2019-01-01").to_list()))
+    letters = [i for i in string.ascii_lowercase]
 
-        data = {"id": customer+1,
-                "name" : create_name(gender),
-            "last_name" : " ".join([fake.last_name(), fake.last_name()] ),
-            "gender" : gender, 
-            "birth_date" : dt.datetime(rng.choice([bounded_normal_integer(1990, 8, 1950), bounded_normal_integer(2005, 3, 1950)], p= [0.5,0.5], size=1)[0],\
-                                        birth_date.month,\
-                                            birth_date.day),
-            "lat" : customer_x[customer],
-            "lon" : customer_y[customer],
-            "zipcode" : zipcode,
-            "email" : rng.choice(letters) + rng.integers(8,17)*"*"+ rng.choice(letters) +"@" + rng.choice(["gmail.com", "hotmail.com"]),
-            "phone_number" : "(473)" + str(rng.integers(1000000,10000000)),
-            "updated_at" : dt.datetime.now()
-            }
-        
-        customers_data.append(tuple(data.values()))
+    data = {"id": None,
+            "name" : create_name(gender),
+        "last_name" : " ".join([fake.last_name(), fake.last_name()] ),
+        "gender" : gender, 
+        "birth_date" : dt.datetime(rng.choice([bounded_normal_integer(1990, 8, 1950), bounded_normal_integer(2005, 3, 1950)], p= [0.5,0.5], size=1)[0],\
+                                    birth_date.month,\
+                                        birth_date.day),
+        "lat" : customer_x,
+        "lon" : customer_y,
+        "zipcode" : zipcode,
+        "email" : rng.choice(letters) + rng.integers(8,17)*"*"+ rng.choice(letters) +"@" + rng.choice(["gmail.com", "hotmail.com"]),
+        "phone_number" : "(473)" + str(rng.integers(1000000,10000000)),
+        "created_at" : dt.datetime.now(),
+        "status" : "Active",
+        "profile_type" : None,
+        "updated_at" : dt.datetime.now()
+        }
+    
+    #customers_data.append(tuple(data.values()))
+    #customers_data.append(data)
+    
+    return data
