@@ -1,2 +1,8 @@
-Id_Customer,Name,Last_Name,Gender,Birth_Date,Latitude,Longitude,Zipcode,Email,Phone_Number,Created_At,Status,Profile_Type,Updated_At
+Customer_Id,Name,Last_Name,Gender,Birth_Date,Latitude,Longitude,Zipcode,Email,Phone_Number,Created_At,Status,Profile_Type,Updated_At
 1,Benito Gabino,Maldonado Otero,true,2004-08-20T00:00:00.000000,21.017767,-101.2543,36000,a**********e@hotmail.com,(473)7984438,2026-01-01T20:47:13.525995,Active,8,2026-05-20T20:47:13.525957
+2,Salvador Salvador,Corral Covarrubias,true,1989-12-18T00:00:00.000000,21.024862,-101.25441,36013,n***************h@hotmail.com,(473)9898681,2026-01-01T11:00:30.986310,Active,3,2026-05-22T11:00:30.986267
+3,Gerardo Claudio,Perea Montemayor,true,2006-02-21T00:00:00.000000,21.00334,-101.28825,36253,c****************y@hotmail.com,(473)5660807,2026-01-01T11:00:34.684226,Active,1,2026-05-22T11:00:34.684184
+4,Susana Ivonne,Posada Barela,false,2004-07-20T00:00:00.000000,21.02102,-101.26269,36030,l***************u@gmail.com,(473)8059431,2026-01-01T11:04:48.938977,Active,3,2026-05-22T11:04:48.938938
+5,Fidel Carlos,Yáñez Saldaña,true,2009-12-02T00:00:00.000000,21.014194,-101.265236,36086,w********i@gmail.com,(473)5287675,2026-01-01T11:04:52.644673,Active,1,2026-05-22T11:04:52.644633
+6,Gustavo Ramiro,Ybarra Polanco,true,1994-06-24T00:00:00.000000,20.975775,-101.27916,36256,w***************o@gmail.com,(473)6764659,2026-01-01T11:05:28.875461,Active,5,2026-05-22T11:05:28.875422
+7,Citlali Lucía,Quintero Luna,false,1978-05-21T00:00:00.000000,21.007978,-101.274376,36250,a***************r@gmail.com,(473)9855400,2026-01-01T11:06:56.202090,Active,7,2026-05-22T11:06:56.202050
