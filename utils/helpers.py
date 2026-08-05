@@ -136,7 +136,7 @@ def create_customer(geography_metadata_, n_=1):
         "gender" : gender, 
         "birth_date" : dt.datetime(rng.choice([bounded_normal_integer(1990, 8, 1950), bounded_normal_integer(2005, 3, 1950)], p= [0.5,0.5], size=1)[0],\
                                     birth_date.month,\
-                                        birth_date.day),
+                                        birth_date.day).date(),
         "lat" : customer_x,
         "lon" : customer_y,
         "zipcode" : zipcode,
