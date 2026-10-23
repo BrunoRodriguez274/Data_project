@@ -1,5 +1,2 @@
-"Does import This work?"
-"--Just try it."
+"This script prints the Zen of Python"
 import this
-
-"It is called Zen of Python"
